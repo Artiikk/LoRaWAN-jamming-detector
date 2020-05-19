@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     storageData[key] = localStorage.getItem(key)
   }
   
-  const socket = new WebSocket('ws://localhost:8080/api/gateways/1dee03832ba7508f/frames', ['Bearer', storageData.token]);
+  const socket = new WebSocket(`ws://localhost:8080/api/gateways/${storageData.gatewayId}/frames`, ['Bearer', storageData.token]);
 
   socket.addEventListener('open', () => console.log('opening connection'));
 

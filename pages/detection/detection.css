@@ -1,0 +1,29 @@
+.change-info {
+  font-size: 25px;
+}
+
+.data {
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.card {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card-error {
+  color: #fff;
+  font-weight: 700;
+  background-image: linear-gradient(to top, #f93c44, #cc2054);
+}
+
+.card-error .uk-card-title {
+  color: #fff;
+}
+
+.map {
+  height: 250px;
+  width: 250px;
+}

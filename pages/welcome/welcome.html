@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome page</title>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="./welcome.css">
+  <link rel="stylesheet" href="../main.css">
+</head>
+
+<body id="welcome-body">
+  <div class="uk-card uk-card-large uk-card-default uk-margin-auto uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">Fill your device information</h3>
+    <form>
+        <label for="eui">Device EUI</label>
+        <input id="eui" type="text">
+
+        <label for="devAddr">Device address</label>
+        <input id="devAddr" type="text" >
+
+        <label for="gatewayId">Gateway ID</label>
+        <input id="gatewayId" type="text" >
+
+        <label for="token">Token</label>
+        <input id="token" type="text">
+
+        <button type="submit">Submit</button>
+    </form>
+    <!-- <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+  </div>
+</body>
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
+<script src="./welcome.js"></script>
+</html>

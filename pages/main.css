@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../assets/LoRaWAN-cover.jpg") center center/cover no-repeat fixed;
+  background-size: 100% 100%;
+  min-height: 100vh;
+}

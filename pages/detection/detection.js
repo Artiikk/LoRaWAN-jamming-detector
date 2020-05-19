@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isValid = (storageData.devAddr === devAddr || storageData.eui === devEUI);
 
     const item = `
-      <li class='card ${!isValid && 'card-error'} uk-card uk-card-default uk-card-body uk-width-expand'>
+      <li class='card ${!isValid && 'card-error'} uk-card uk-card-default uk-card-body uk-animation-slide-top uk-width-expand'>
         <a class='uk-accordion-title uk-card-title' href="#">Device address: ${devAddr}</a>
           <div class='uk-flex uk-flex-between uk-accordion-content'>
             <div class='accordion-data'>

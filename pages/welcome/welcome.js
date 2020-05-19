@@ -16,7 +16,7 @@ const handleSubmit = (e) => {
     localStorage.setItem('gatewayId', gatewayId.value);
     localStorage.setItem('token', token.value);
 
-    window.location.href = '/pages/detection/detection.html';
+    window.location.href = '/LoRaWAN-jamming-detector/pages/detection/detection.html';
   };
 };
 

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } = parsedData;
 
     const parsedPayload = JSON.parse(phyPayloadJSON);
-    const { macPayload: { fhdr: { devAddr } }, mhdr: { mType }, macPayload: { devEUI }, mic } = parsedPayload;
+    const { macPayload: { fhdr: { devAddr = '00000000' } }, mhdr: { mType }, macPayload: { devEUI }, mic } = parsedPayload;
     const { location: { latitude, longitude } } = rxObj;
 
     const isValid = (storageData.devAddr === devAddr || storageData.eui === devEUI);

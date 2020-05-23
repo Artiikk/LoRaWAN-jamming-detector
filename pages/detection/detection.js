@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.addEventListener('open', () => console.log('opening connection'));
 
   socket.addEventListener('message', ({ data }) => {
-    const parsedData = JSON.parse(data);
     const {
       result: {
         uplinkFrame: {
@@ -23,21 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
               bandwidth,
               codeRate,
               spreadingFactor
+            }
           }
         }
       }
-    }
-  } = parsedData;
+    } = JSON.parse(data);
 
-    const parsedPayload = JSON.parse(phyPayloadJSON);
-    const { macPayload: { fhdr: { devAddr = '00000000' } }, mhdr: { mType }, macPayload: { devEUI }, mic } = parsedPayload;
+    const { mhdr: { mType }, macPayload, mic } = JSON.parse(phyPayloadJSON);
     const { location: { latitude, longitude } } = rxObj;
 
-    const isValid = (storageData.devAddr === devAddr || storageData.eui === devEUI);
+    const devAddr = macPayload.fhdr ? macPayload.fhdr.devAddr : macPayload.devEUI;
+    const isValid = (storageData.devAddr === devAddr || storageData.eui === devAddr);
 
     const item = `
       <li class='card ${!isValid && 'card-error'} uk-card uk-card-default uk-card-body uk-animation-slide-top uk-width-expand'>
-        <a class='uk-accordion-title uk-card-title' href="#">Device address: ${devAddr}</a>
+        <a class='uk-accordion-title uk-card-title' href="#"><b>Device ${macPayload.fhdr ? 'address' : 'EUI'}</b>: ${devAddr}</a>
           <div class='uk-flex uk-flex-between uk-accordion-content'>
             <div class='accordion-data'>
               <p><b>Frequency</b>: ${frequency}</p>

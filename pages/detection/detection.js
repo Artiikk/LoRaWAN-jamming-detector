@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 10 retries max. to avoid infinite requests
       if (gatewayIsOffline > (MIN * 2) || retries >= 10) {
-        socket.close();
         const modal = `
           <div id="modal-center" class="uk-flex-top" uk-modal>
             <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -115,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body.insertAdjacentHTML('afterbegin', modal);
         UIkit.modal(modal).show();
 
+        socket.close();
         clearInterval(intervalId);
         console.log('Connection closed!');
       };

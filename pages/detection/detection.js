@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let retries = 0;
   const intervalId = setInterval(async () => {
     const newTime = new Date().getTime();
-    const lastMessageInterval = new Date(lastDate).getTime() + (10000);
+    const lastMessageInterval = new Date(lastDate).getTime() + (MIN * 2);
     retries += 1;
 
     if (newTime > lastMessageInterval) {
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Connection closed!');
       };
     };
-  }, 10000);
+  }, MIN);
 
   const closeConnection = (e) => e.wasClean ? `Closed correctly, code: ${event.code}, reason: ${event.reason}` : 'Connection closed';
   socket.addEventListener('close', closeConnection);

@@ -92,9 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (newTime > lastMessageInterval) {
       const response = await fetch('http://localhost:8080/api/gateways?limit=1', {
-        headers: new Headers({
-          'Authorization': storageData.token,
-        })
+        headers: new Headers({ 'Authorization': storageData.token })
       });
 
       const { result: [ gateway ] } = await response.json();

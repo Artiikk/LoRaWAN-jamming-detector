@@ -87,12 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let retries = 0;
   const intervalId = setInterval(async () => {
     const newTime = new Date().getTime();
-    const lastMessageInterval = new Date(lastDate).getTime() + (MIN * 2);
+    const lastMessageInterval = new Date(lastDate).getTime() + (10000);
     retries += 1;
 
     if (newTime > lastMessageInterval) {
       const response = await fetch('http://localhost:8080/api/gateways?limit=1', {
-        headers: new Headers({ 'Authorization': storageData.token })
+        headers: new Headers({
+          'Authorization': storageData.token,
+          'Access-Control-Allow-Headers': 'access-control-allow-origin, authorization',
+          'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
+          'Access-Control-Allow-Origin': '*',
+        }),
       });
 
       const { result: [ gateway ] } = await response.json();
@@ -119,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Connection closed!');
       };
     };
-  }, MIN);
+  }, 10000);
 
   const closeConnection = (e) => e.wasClean ? `Closed correctly, code: ${event.code}, reason: ${event.reason}` : 'Connection closed';
   socket.addEventListener('close', closeConnection);

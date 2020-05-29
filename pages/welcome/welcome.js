@@ -19,7 +19,7 @@ const handleSubmit = (e) => {
     localStorage.setItem('token', token.value);
     localStorage.setItem('interval', interval.value);
 
-    window.location.href = '/LoRaWAN-jamming-detector/pages/detection/detection.html';
+    window.location.href = '/pages/detection/detection.html';
   };
 };
 
